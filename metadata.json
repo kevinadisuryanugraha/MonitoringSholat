@@ -1,0 +1,6 @@
+{
+  "name": "SholTrack",
+  "description": "Sistem Monitoring Ibadah Sholat 5 Waktu Santri untuk Pesantren dan Sekolah Islam",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

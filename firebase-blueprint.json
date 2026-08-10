@@ -1,0 +1,132 @@
+{
+  "entities": {
+    "UserAccount": {
+      "title": "User Account",
+      "description": "User profile and role details in the pesantren system",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["musyrif", "wali_kelas", "kepala_sekolah"] },
+        "kelompokId": { "type": "string" },
+        "kelompokNama": { "type": "string" },
+        "kelasId": { "type": "string" },
+        "kelasNama": { "type": "string" },
+        "isActive": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "role"]
+    },
+    "Kelas": {
+      "title": "Kelas",
+      "description": "Class entity for students",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "namaKelas": { "type": "string" },
+        "waliKelasId": { "type": "string" },
+        "waliKelasNama": { "type": "string" },
+        "jumlahSantri": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "namaKelas"]
+    },
+    "Kelompok": {
+      "title": "Kelompok",
+      "description": "Dormitory group entity",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "namaKelompok": { "type": "string" },
+        "musyrifId": { "type": "string" },
+        "musyrifNama": { "type": "string" },
+        "kelasId": { "type": "string" },
+        "kelasNama": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "namaKelompok"]
+    },
+    "Santri": {
+      "title": "Santri",
+      "description": "Student entity",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "nama": { "type": "string" },
+        "nis": { "type": "string" },
+        "kelasId": { "type": "string" },
+        "kelasNama": { "type": "string" },
+        "kelompokId": { "type": "string" },
+        "kelompokNama": { "type": "string" },
+        "isActive": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "nama", "nis"]
+    },
+    "KonfigurasiWaktuSholat": {
+      "title": "Konfigurasi Waktu Sholat",
+      "description": "Prayer timing settings",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "nama": { "type": "string" },
+        "batasAwalPengisian": { "type": "string" },
+        "batasAkhirPengisian": { "type": "string" },
+        "urutan": { "type": "number" }
+      },
+      "required": ["id", "nama"]
+    },
+    "AbsensiRecord": {
+      "title": "Absensi Record",
+      "description": "Prayer attendance entry",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "santriId": { "type": "string" },
+        "santriNama": { "type": "string" },
+        "nis": { "type": "string" },
+        "kelompokId": { "type": "string" },
+        "kelompokNama": { "type": "string" },
+        "kelasId": { "type": "string" },
+        "kelasNama": { "type": "string" },
+        "musyrifId": { "type": "string" },
+        "musyrifNama": { "type": "string" },
+        "tanggal": { "type": "string" },
+        "waktuSholat": { "type": "string" },
+        "status": { "type": "string", "enum": ["berjamaah", "munfarid", "sakit", "izin", "alpha"] },
+        "alasanAlpha": { "type": "string" },
+        "catatan": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "santriId", "tanggal", "waktuSholat", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserAccount" },
+      "description": "User accounts collection"
+    },
+    "/kelas/{kelasId}": {
+      "schema": { "$ref": "#/entities/Kelas" },
+      "description": "Classes collection"
+    },
+    "/kelompok/{kelompokId}": {
+      "schema": { "$ref": "#/entities/Kelompok" },
+      "description": "Groups/Kamar collection"
+    },
+    "/santri/{santriId}": {
+      "schema": { "$ref": "#/entities/Santri" },
+      "description": "Santri students collection"
+    },
+    "/konfigurasi_sholat/{sholatId}": {
+      "schema": { "$ref": "#/entities/KonfigurasiWaktuSholat" },
+      "description": "Prayer configuration collection"
+    },
+    "/absensi/{absensiId}": {
+      "schema": { "$ref": "#/entities/AbsensiRecord" },
+      "description": "Attendance logs collection"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "_comment": "API Key Firebase ini aman berada di client-side untuk Firebase SDK. Keamanan diatur melalui Firestore Security Rules (firestore.rules), bukan melalui secrecy API key.",
+  "projectId": "gen-lang-client-0737787280",
+  "appId": "1:323467792210:web:c408f41855e6748449b48b",
+  "apiKey": "AIzaSyD-XSXyqcxo0AESLeY6Vc4oyw752luOjZA",
+  "authDomain": "gen-lang-client-0737787280.firebaseapp.com",
+  "firestoreDatabaseId": "ai-studio-73c45f7e-6581-41ca-b3ca-69ccfecffc2d",
+  "storageBucket": "gen-lang-client-0737787280.firebasestorage.app",
+  "messagingSenderId": "323467792210",
+  "measurementId": "",
+  "oAuthClientId": "323467792210-po69msv7haog1oin5ko1ju8ehr6cl668.apps.googleusercontent.com",
+  "recaptchaSiteKey": ""
+}
